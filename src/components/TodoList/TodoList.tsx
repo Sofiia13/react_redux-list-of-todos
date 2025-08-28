@@ -23,9 +23,17 @@ export const TodoList: React.FC<Props> = ({ todos, isModalOpen }) => (
     </thead>
 
     <tbody>
-      {todos.map(todo => (
-        <TodoItem todo={todo} key={todo.id} isModalOpen={isModalOpen} />
-      ))}
+      {todos.length === 0 ? (
+        <tr>
+          <td colSpan={4} className="has-text-centered has-text-grey">
+            No todos found
+          </td>
+        </tr>
+      ) : (
+        todos.map(todo => (
+          <TodoItem todo={todo} key={todo.id} isModalOpen={isModalOpen} />
+        ))
+      )}
     </tbody>
   </table>
 );

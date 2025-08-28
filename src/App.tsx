@@ -8,17 +8,17 @@ import { TodoFilter } from './components/TodoFilter';
 import { TodoModal } from './components/TodoModal';
 import { Loader } from './components/Loader';
 import { getTodos } from './api';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from './app/store';
+import { RootState } from './app/store';
 import { setTodos } from './features/todos';
+import { useAppDispatch, useAppSelector } from './hooks';
 
 export const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const dispatch = useDispatch<AppDispatch>();
-  const todos = useSelector((state: RootState) => state.todos);
-  const currentTodo = useSelector((state: RootState) => state.currentTodo);
-  const filter = useSelector((state: RootState) => state.filter);
+  const dispatch = useAppDispatch();
+  const todos = useAppSelector((state: RootState) => state.todos);
+  const currentTodo = useAppSelector((state: RootState) => state.currentTodo);
+  const filter = useAppSelector((state: RootState) => state.filter);
 
   useEffect(() => {
     setIsLoading(true);

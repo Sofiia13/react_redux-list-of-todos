@@ -10,7 +10,6 @@ type Props = {
 
 export const TodoItem: React.FC<Props> = ({
   todo,
-  // getCurrentTodo,
   isModalOpen,
 }) => {
   const [isSelected, setIsSelected] = useState(false);

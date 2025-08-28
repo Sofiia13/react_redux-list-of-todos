@@ -1,23 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../app/store';
+import { RootState } from '../../app/store';
 import { setFilter, setQuery } from '../../features/filter';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
-type Props = {
-  // query: string;
-  // changeQuery: (value: string) => void;
-  // setFilter: (value: string) => void;
-};
+type Props = {};
 
-export const TodoFilter: React.FC<Props> = (
-  {
-    // query,
-    // changeQuery,
-    // setFilter,
-  },
-) => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { query } = useSelector((state: RootState) => state.filter);
+export const TodoFilter: React.FC<Props> = ({}) => {
+  const dispatch = useAppDispatch();
+  const { query } = useAppSelector((state: RootState) => state.filter);
 
   return (
     <form className="field has-addons">

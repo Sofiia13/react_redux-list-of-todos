@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Loader } from '../Loader';
 import { User } from '../../types/User';
 import { getUser } from '../../api';
-import { useDispatch, useSelector } from 'react-redux';
 import { clearCurrentTodo } from '../../features/currentTodo';
-import { AppDispatch, RootState } from '../../app/store';
+import { RootState } from '../../app/store';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 type Props = {
   // todo: Todo | null;
@@ -14,8 +14,8 @@ export const TodoModal: React.FC<Props> = ({}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
 
-  const dispatch = useDispatch<AppDispatch>();
-  const todo = useSelector((state: RootState) => state.currentTodo);
+  const dispatch = useAppDispatch();
+  const todo = useAppSelector((state: RootState) => state.currentTodo);
 
   useEffect(() => {
     if (!todo?.userId) {
