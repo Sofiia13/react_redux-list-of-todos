@@ -8,10 +8,7 @@ type Props = {
   isModalOpen: boolean;
 };
 
-export const TodoItem: React.FC<Props> = ({
-  todo,
-  isModalOpen,
-}) => {
+export const TodoItem: React.FC<Props> = ({ todo, isModalOpen }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const dispatch = useDispatch();
