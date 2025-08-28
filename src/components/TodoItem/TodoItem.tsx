@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Todo } from '../../types/Todo';
-import { useDispatch } from 'react-redux';
 import { setCurrentTodo } from '../../features/currentTodo';
+import { useAppDispatch } from '../../hooks';
 
 type Props = {
   todo: Todo;
@@ -11,7 +11,7 @@ type Props = {
 export const TodoItem: React.FC<Props> = ({ todo, isModalOpen }) => {
   const [isSelected, setIsSelected] = useState(false);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleClick = () => {
     dispatch(setCurrentTodo(todo));
